@@ -62,3 +62,11 @@ jobs:
           severity: CRITICAL,HIGH
           ignore-unfixed: true
           exit-code: "1"
+
+      - name: Verify Snyk authentication
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        run: |
+          npx snyk@latest --version
+          npx snyk@latest auth "$SNYK_TOKEN"
+          echo "Snyk authentication successful"
