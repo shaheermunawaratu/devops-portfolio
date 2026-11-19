@@ -70,3 +70,21 @@ jobs:
           npx snyk@latest --version
           npx snyk@latest auth "$SNYK_TOKEN"
           echo "Snyk authentication successful"
+
+      - name: Snyk dependency vulnerability scan
+        continue-on-error: true
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        run: npx snyk@latest test --file=requirements.txt
+
+      - name: Snyk infrastructure configuration scan
+        continue-on-error: true
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        run: npx snyk@latest iac test .
+
+      - name: Snyk Docker image vulnerability scan
+        continue-on-error: true
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        run: npx snyk@latest container test shaheer-devops-portfolio:${{ github.sha }} --file=Dockerfile
