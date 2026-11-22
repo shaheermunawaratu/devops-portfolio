@@ -1,7 +1,7 @@
 ﻿# DevOps Portfolio – CI/CD Pipeline
 
 **Author:** Shaheer Munawar  
-**Programme:** MSc Computing in DevOps – Atlantic Technological University  
+**Programme:** MSc Computing in DevOps – Atlantic Technological University Donegal
 **Repository:** https://github.com/shaheermunawaratu/devops-portfolio
 
 ## 1. Project Overview
